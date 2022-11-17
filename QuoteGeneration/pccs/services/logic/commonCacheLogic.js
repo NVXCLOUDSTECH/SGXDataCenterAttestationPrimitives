@@ -429,3 +429,12 @@ export async function getCrlFromPCS(uri) {
 
   return crl;
 }
+
+export async function getCrlFromFile(uri) {
+  const fs = require('fs');
+  let crl = fs.readFileSync('/root/pccs-data/crl/IntelSGXRootCA.der');
+
+  await crlCacheDao.upsertCrl(uri, crl);
+
+  return crl;
+}

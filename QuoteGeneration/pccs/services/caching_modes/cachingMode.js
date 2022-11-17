@@ -260,4 +260,8 @@ export class OfflineCachingMode extends CachingMode {
       );
     }
   }
+
+  async getCrlFromPCS(uri) {
+    return await CommonCacheLogic.getCrlFromFile(uri);
+  }
 }
